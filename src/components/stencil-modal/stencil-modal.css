@@ -1,3 +1,122 @@
 :host {
   display: block;
 }
+
+/*Modal Wrapper*/
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+  z-index: 10;
+}
+
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  /* transform: translate(-50%, -50%); */
+}
+
+.modal-wrapper .modal {
+  background: var(--white);
+  width: 600px;
+  height: auto;
+  position: absolute;
+  left: 35%;
+  transform: translate(-50%, 0px);
+  border-radius: 4px;
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+/* Modal Header */
+.modal-wrapper .modal .header {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--mono-05);
+}
+
+.modal-wrapper .modal .header h6 {
+  margin: 0;
+  line-height: 1;
+  font-size: 16px;
+}
+
+.modal-wrapper .modal .header .close {
+  height: 24px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+}
+
+.modal-wrapper .modal .header .close:hover {
+  background: var(--mono-10);
+}
+
+/*Modal body*/
+.modal-wrapper .modal .body {
+  padding: 16px;
+  font-size: 14px;
+  line-height: 21px;
+  max-height: 320px;
+  height: auto;
+  overflow-y: auto;
+  color: var(--mono-50);
+}
+
+/*Modal Footer*/
+
+.modal-wrapper .modal .footer {
+  padding: 16px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-top: 1px solid var(--mono-05);
+}
+
+.modal-wrapper .modal .footer stencil-button {
+  margin: 0 6px;
+}
+.modal-wrapper .modal .footer stencil-button:first-child {
+  margin: 0 6px 0;
+}
+.modal-wrapper .modal .footer stencil-button:last-child {
+  margin: 0 0 0 6px;
+}
+
+/*Active styles*/
+
+.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.is-open .modal {
+  transform: translate(-50px, 90px);
+}
+
+/* Mobile Styles */
+@media (max-width: 600px) {
+  .modal-wrapper .modal {
+    width: 100%;
+    bottom: 0;
+    transform: translate(-50%, 100%);
+    opacity: 1;
+  }
+  .isopen .modal {
+    transform: translate(-50%, 0);
+  }
+}
